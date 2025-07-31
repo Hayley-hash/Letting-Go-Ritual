@@ -1124,10 +1124,14 @@
       <p><em>I am free from resignation. I choose peace, power, and self-love.</em></p>
     ;
 }
-</script>
-const message = document.getElementById("message");
-    message.innerHTML = content;
-    message.classList.add("visible");
+<script>
+  function releaseEmotion() {
+    const emotion = document.getElementById("emotionSelector").value;
+    const journal = document.getElementById("releaseText").value;
+
+    if (!emotion) {
+      alert("Please select an emotion.");
+      return;
 
     document.getElementById("emotionSelector").value = "";
     document.getElementById("releaseText").value = "";
