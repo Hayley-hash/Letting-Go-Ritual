@@ -1125,12 +1125,11 @@
     ;
 }
 </script>
-  const message = document.getElementById("message");
-message.innerHTML = content;
-message.classList.add("visible");
-document.getElementById("emotionSelector").value = "";
-document.getElementById("releaseText").value = "";
-    }
-  </script>
-</body>
-</html>
+const message = document.getElementById("message");
+    message.innerHTML = content;
+    message.classList.add("visible");
+
+    document.getElementById("emotionSelector").value = "";
+    document.getElementById("releaseText").value = "";
+  }
+</script>
