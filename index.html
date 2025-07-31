@@ -3,13 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <title>Letting Go Ritual</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f6f3;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    select, textarea, button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #222;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 30px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+    }
+  </style>
 </head>
 <body>
-  <h1>Letting Go Ritual</h1>
-  <p>A sacred space to release, reset, and reclaim your brilliance.</p>
+  <h2>🌿 Letting Go Ritual</h2>
+  <p>Select the emotion you'd like to release:</p>
 
-  <a href="letting_go_ritual.html">🌀 Begin Ritual</a> |
-  <a href="brilliance_library.html">📚 Brilliance Library</a> |
-  <a href="about.html">✨ About</a>
+  <select id="emotionSelector">
+    <option value="">-- Choose an emotion --</option>
+    <option>Fear</option>
+    <option>Shame</option>
+    <option>Guilt</option>
+  </select>
+
+  <textarea id="releaseText" placeholder="Write what you’d like to let go of today…"></textarea>
+  <button onclick="releaseEmotion()">Release It</button>
+
+  <div id="message"></div>
+
+  <script>
+    function releaseEmotion() {
+      const emotion = document.getElementById("emotionSelector").value;
+      const journal = document.getElementById("releaseText").value;
+
+      if (!emotion) {
+        alert("Please select an emotion.");
+        return;
+      }
+
+      let content = "";
+
+      if (emotion === "Fear") {
+        content = `
+          <h3>🖤 Emotion: Fear</h3>
+          <h4>🔍 What Is Fear?</h4>
+          <p>Fear is a natural emotional response to danger or uncertainty. In modern life, it often arises from imagined threats or past wounds.</p>
+
+          <h4>🧠 In the Body</h4>
+          <p>Fear activates your fight-or-flight system. It tenses muscles, increases heart rate, and clouds your thinking.</p>
+
+          <h4>🌬️ Why We Release</h4>
+          <p>You no longer need fear as your compass. Releasing fear makes space for peace and trust in life.</p>
+
+          <h4>🌿 Ritual</h4>
+          <ul>
+            <li>Close your eyes. Take 3 deep breaths.</li>
+            <li>Say: "I release fear. I am safe and free."</li>
+            <li>Visualize the fear dissolving from your body.</li>
+          </ul>
+
+          <h4>💫 Affirmation</h4>
+          <p><em>I am grounded, calm, and courageous. Fear no longer controls me.</em></p>
+        `;
+      } else if (emotion === "Shame") {
+        content = `
+          <h3>🖤 Emotion: Shame</h3>
+          <h4>📘 Release Reflection</h4>
+          <p>You chose to release: <strong>${emotion}</strong>.</p>
+          ${journal ? `<p>You wrote: "<em>${journal}</em>"</p>` : ''}
+
+          <h4>🌿 Letting Go Ritual</h4>
+          <ul>
+            <li>Find stillness and take 3 deep breaths.</li>
+            <li>Say: “I release shame. It no longer belongs to me.”</li>
+            <li>Place your hand on your heart and feel the release.</li>
+          </ul>
+
+          <h4>💫 Affirmation</h4>
+          <p><em>I am free from shame. I choose peace, power, and self-love.</em></p>
+        `;
+      } else if (emotion === "Guilt") {
+        content = `
+          <h3>🖤 Emotion: Guilt</h3>
+          <h4>📘 Release Reflection</h4>
+          <p>You chose to release: <strong>${emotion}</strong>.</p>
+          ${journal ? `<p>You wrote: "<em>${journal}</em>"</p>` : ''}
+
+          <h4>🌿 Letting Go Ritual</h4>
+          <ul>
+            <li>Pause. Breathe deeply into your belly.</li>
+            <li>Say: “I forgive myself. I am human and learning.”</li>
+          </ul>
+
+          <h4>💫 Affirmation</h4>
+          <p><em>I release guilt and walk forward with compassion and grace.</em></p>
+        `;
+      } else {
+        content = `<p>This emotion is still being added. Try again soon!</p>`;
+      }
+
+      document.getElementById("message").innerHTML = content;
+    }
+  </script>
 </body>
 </html>
